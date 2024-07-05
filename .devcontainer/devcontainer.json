@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
-	"name": "Python 3",
+	"name": "Python 3 with Jupyter",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/devcontainers/python:1-3.12-bullseye",
 	"features": {
@@ -12,11 +12,36 @@
 	// "features": {},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+	/*"forwardPorts": [8888],
 
+	"containerEnv": {
+		"GRANT_SUDO": "yes",
+		"CHOWN_HOME": "true",
+		"CHOWN_HOME_OPTS": "-R",
+		"NB_USER": "jovyan",
+		"NB_UID": "1000",
+		"NB_GID": "1000"
+	},
+
+	// start with user root
+	"remoteUser" : "root",
+*/
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "pip3 install --user -r requirements.txt",
-	"postCreateCommand": "export DEBIAN_FRONTEND=noninteractive && sudo apt update && sudo apt install -y graphviz && pip3 install --user -r requirements.txt"
+	"postCreateCommand": "export DEBIAN_FRONTEND=noninteractive && sudo apt update && sudo apt install -y graphviz && pip install --upgrade pip && pip3 install --user -r requirements.txt",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-toolsai.jupyter",
+				"ms-python.debugpy",
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-vscode.vs-keybindings",
+				"visualstudioexptteam.intellicode-api-usage-examples",
+				"visualstudioexptteam.vscodeintellicode"
+			]
+		}
+	}
 	// Configure tool-specific properties.
 	// "customizations": {},
 
