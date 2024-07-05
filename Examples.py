@@ -1,3 +1,5 @@
+
+
 def random_deterministic_model_example():
     from aalpy.utils import generate_random_deterministic_automata
     from aalpy.SULs import AutomatonSUL
@@ -19,6 +21,7 @@ def random_deterministic_model_example():
     learned_model = run_KV(input_alphabet, sul, eq_oracle, model_type)
 
     assert learned_model == random_model
+    learned_model.visualize(path='learned_model.pdf')
     return learned_model
 
 
@@ -1062,3 +1065,28 @@ def random_sevpa_learning():
     model = run_KV(alphabet=alphabet, sul=sul, eq_oracle=eq_oracle, automaton_type='vpa',
                    print_level=2, cex_processing='rs')
 
+
+if __name__ == '__main__':
+    random_deterministic_model_example()
+    # mqtt_example()
+    # onfsm_mealy_paper_example()
+    # multi_client_mqtt_example()
+    # abstracted_onfsm_example()
+    # faulty_coffee_machine_mdp_example()
+    # weird_coffee_machine_mdp_example()
+    # benchmark_stochastic_example('first_grid')
+    # custom_stochastic_example(get_faulty_coffee_machine_MDP())
+    # alergia_mdp_example()
+    # alergia_smm_example()
+    # alergia_mc_example_with_loaded_data()
+    # jAlergiaExample()
+    # active_alergia_example()
+    # rpni_example()
+    # rpni_check_model_example()
+    # rpni_mealy_example()
+    # random_active_rpni_example()
+    # compare_stochastic_and_non_deterministic_learning()
+    # learning_context_free_grammar_example()
+    # arithmetic_expression_sevpa_learning()
+    # benchmark_sevpa_learning()
+    # random_sevpa_learning()
