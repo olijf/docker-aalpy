@@ -26,9 +26,10 @@
 	// start with user root
 	"remoteUser" : "root",
 */
+	"runArgs": ["--device=/dev/ttyACM0"],
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "pip3 install --user -r requirements.txt",
-	"postCreateCommand": "export DEBIAN_FRONTEND=noninteractive && sudo apt update && sudo apt install -y graphviz && pip install --upgrade pip && pip3 install --user -r requirements.txt",
+	"postCreateCommand": "export DEBIAN_FRONTEND=noninteractive && sudo apt update && sudo apt install -y graphviz && pip install --upgrade pip && pip3 install --user -r requirements.txt && sudo chgrp vscode /dev/ttyACM0 && sudo chown vscode /dev/ttyACM0",
 	"customizations": {
 		"vscode": {
 			"extensions": [
